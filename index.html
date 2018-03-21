@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>FaceDetector</title>
 	<style>
 		* {
 			box-sizing: border-box;
@@ -52,6 +52,7 @@
 				.then(detectedFaces => {
 					console.log(detectedFaces);
 					for (const face of detectedFaces) {
+						const { width, height, top, left } = face.boundingBox
 						const bound = document.createElement('div');
 						console.log(face.boundingBox);
 						bound.style.position = 'absolute';
@@ -59,10 +60,33 @@
 						bound.style.top = rate * face.boundingBox.y + 'px';
 						bound.style.width = rate * face.boundingBox.width + 'px';
 						bound.style.height = rate * face.boundingBox.height + 'px';
-						bound.style.border = '2px solid red';
-						bound.style.backgroundColor = 'rgba(0, 0, 255, 0.25)';
+						bound.style.border = '2px solid #3AF4D5';
 						container.appendChild(bound);
+
+						//mouth
+						face.landmarks.forEach(landmark => {
+							console.log('landmark', landmark);
+
+							const el = document.createElement('div');
+							el.classList.add('landmark', landmark.type)
+							el.style.cssText = `top: ${landmark.location.y - top}px; left: ${landmark.location.x - left}px;`;
+							container.appendChild(el);
+						})
+
+
 					}
+
+					// for (const mouth of detectedFaces) {
+					// 	const divMouth = document.createElement('div');
+					// 	console.log(face.boundingBox);
+					// 	divMouth.style.position = 'absolute';
+					// 	divMouth.style.left = rate * face.boundingBox.x + 'px';
+					// 	divMouth.style.top = rate * face.boundingBox.y + 'px';
+					// 	divMouth.style.width = rate * face.boundingBox.width + 'px';
+					// 	divMouth.style.height = rate * face.boundingBox.height + 'px';
+					// 	divMouth.style.border = '2px solid #3AF4D5';
+					// 	container.appendChild(divMouth);
+					// }
 				})
 				.catch((e) => {
 					console.error("Face Detection failed, boo.", e);
