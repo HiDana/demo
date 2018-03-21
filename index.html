@@ -25,6 +25,10 @@
 			padding: 5px;
 			position: absolute;
 		}
+
+		.mouth {
+			border: 2px solid #FF307F;
+		}
 	</style>
 </head>
 
@@ -74,8 +78,8 @@
 							const el = document.createElement('div');
 							el.classList.add('landmark', landmark.type)
 							el.style.cssText = `
-							top: ${rate * (landmark.location.y - top - 5)}px; 
-							left: ${rate * (landmark.location.x - left - 5)}px; 
+							top: ${rate * (landmark.location.y - top - 10)}px; 
+							left: ${rate * (landmark.location.x - left - 10)}px; 
 							border:2px solid #FFFC56;
 							`;
 							faceBox.appendChild(el);
