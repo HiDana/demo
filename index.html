@@ -57,19 +57,20 @@
 
 		function handleDetect() {
 			const rate = image.offsetWidth / image.naturalWidth;
+			console.log(rate, image.offsetWidth, image.naturalWidth);
+
 
 			faceDetector.detect(image)
 				.then(detectedFaces => {
 					console.log(detectedFaces);
-					for (const face of detectedFaces) {
-						const { width, height, top, left } = face.boundingBox
+					detectedFaces.forEach(face => {
+						const { width, height, top, left, x, y } = face.boundingBox
 						const faceBox = document.createElement('div');
-						console.log(face.boundingBox);
 						faceBox.style.position = 'absolute';
-						faceBox.style.left = rate * face.boundingBox.x + 'px';
-						faceBox.style.top = rate * face.boundingBox.y + 'px';
-						faceBox.style.width = rate * face.boundingBox.width + 'px';
-						faceBox.style.height = rate * face.boundingBox.height + 'px';
+						faceBox.style.left = rate * x + 'px';
+						faceBox.style.top = rate * y + 'px';
+						faceBox.style.width = rate * width + 'px';
+						faceBox.style.height = rate * height + 'px';
 						faceBox.style.border = '2px solid #3AF4D5';
 
 
@@ -78,8 +79,8 @@
 							const el = document.createElement('div');
 							el.classList.add('landmark', landmark.type)
 							el.style.cssText = `
-							top: ${rate * (landmark.location.y - top)}px; 
-							left: ${rate * (landmark.location.x - left)}px; 
+							top: ${rate * (landmark.location.y)}px; 
+							left: ${rate * (landmark.location.x)}px; 
 							border:2px solid #FFFC56;
 							`;
 							faceBox.appendChild(el);
@@ -88,7 +89,7 @@
 						container.appendChild(faceBox);
 						console.log(faceBox);
 
-					}
+					})
 
 					// for (const mouth of detectedFaces) {
 					// 	const divMouth = document.createElement('div');
