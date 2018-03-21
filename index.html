@@ -53,15 +53,15 @@
 					console.log(detectedFaces);
 					for (const face of detectedFaces) {
 						const { width, height, top, left } = face.boundingBox
-						const bound = document.createElement('div');
+						const faceBox = document.createElement('div');
 						console.log(face.boundingBox);
-						bound.style.position = 'absolute';
-						bound.style.left = rate * face.boundingBox.x + 'px';
-						bound.style.top = rate * face.boundingBox.y + 'px';
-						bound.style.width = rate * face.boundingBox.width + 'px';
-						bound.style.height = rate * face.boundingBox.height + 'px';
-						bound.style.border = '2px solid #3AF4D5';
-						container.appendChild(bound);
+						faceBox.style.position = 'absolute';
+						faceBox.style.left = rate * face.boundingBox.x + 'px';
+						faceBox.style.top = rate * face.boundingBox.y + 'px';
+						faceBox.style.width = rate * face.boundingBox.width + 'px';
+						faceBox.style.height = rate * face.boundingBox.height + 'px';
+						faceBox.style.border = '2px solid #3AF4D5';
+
 
 						//mouth
 						face.landmarks.forEach(landmark => {
@@ -72,11 +72,10 @@
 							console.log('left', landmark.location.x, left);
 							el.style.cssText = `top: ${landmark.location.y - top}px; left: ${landmark.location.x - left}px; border:2px solid #FFFC56;`;
 							console.log('el', el);
-
-							container.appendChild(el);
+							faceBox.appendChild(el);
 						})
 
-
+						container.appendChild(faceBox);
 					}
 
 					// for (const mouth of detectedFaces) {
