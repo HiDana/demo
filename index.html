@@ -20,6 +20,16 @@
 			top: 50%;
 			transform: translateY(-50%);
 		}
+
+		.landmark {
+			width: 10px;
+			height: 10px;
+			position: absolute;
+		}
+
+		.mouth {
+			width: 20px;
+		}
 	</style>
 </head>
 
@@ -65,17 +75,19 @@
 
 						//mouth
 						face.landmarks.forEach(landmark => {
-							console.log('landmark', landmark);
 							const el = document.createElement('div');
 							el.classList.add('landmark', landmark.type)
-							console.log('top', landmark.location.y, top);
-							console.log('left', landmark.location.x, left);
-							el.style.cssText = `top: ${landmark.location.y - top}px; left: ${landmark.location.x - left}px; border:2px solid #FFFC56;`;
-							console.log('el', el);
+							el.style.cssText = `
+							top: ${rate * (landmark.location.y - top)}px; 
+							left: ${rate * (landmark.location.x - left)}px; 
+							border:2px solid #FFFC56;
+							`;
 							faceBox.appendChild(el);
 						})
 
 						container.appendChild(faceBox);
+						console.log(faceBox);
+
 					}
 
 					// for (const mouth of detectedFaces) {
