@@ -66,10 +66,13 @@
 						//mouth
 						face.landmarks.forEach(landmark => {
 							console.log('landmark', landmark);
-
 							const el = document.createElement('div');
 							el.classList.add('landmark', landmark.type)
-							el.style.cssText = `top: ${landmark.location.y - top}px; left: ${landmark.location.x - left}px;`;
+							console.log('top', landmark.location.y, top);
+							console.log('left', landmark.location.x, left);
+							el.style.cssText = `top: ${landmark.location.y - top}px; left: ${landmark.location.x - left}px; border:2px solid #FFFC56;`;
+							console.log('el', el);
+
 							container.appendChild(el);
 						})
 
