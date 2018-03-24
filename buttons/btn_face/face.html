@@ -5,14 +5,29 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>face</title>
+	<title>faceBtn</title>
 	<link rel="stylesheet" href="./face.css">
 </head>
 
 <body>
 	<div class="wrap">
 		<div class="btn_bg" onclick="btnClick()">
-			<div class="btn hihi"></div>
+			<div class="btn">
+				<div class="btn_face">
+					<div class="sq sq_front">
+						<div class="left_eye"></div>
+						<div class="right_eye"></div>
+						<div class="mouth"></div>
+					</div>
+					<div class="sq sq_left"></div>
+					<div class="sq sq_back">
+						<div class="left_eye"></div>
+						<div class="right_eye"></div>
+						<div class="mouth"></div>
+					</div>
+					<div class="sq sq_right"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
@@ -21,9 +36,11 @@
 <script>
 	const btnToggle = document.getElementsByClassName('btn');
 	const btnBgToggle = document.getElementsByClassName('btn_bg');
+	const btnFaceToggle = document.getElementsByClassName('btn_face')
 
 	function btnClick() {
 		btnToggle[0].classList.toggle('btn_open')
 		btnBgToggle[0].classList.toggle('btn_bg_open')
+		btnFaceToggle[0].classList.toggle('btn_face_open')
 	}
 </script>

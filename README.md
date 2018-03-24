@@ -1,8 +1,8 @@
 # DEMO
 ---
-## buttom
+## button
 ### face btn
-	2018 03 23 / v0.0.1 / 
+	2018 03 24 / v1 / Add FaceBtn
 
 ---
 ## faceDetector
