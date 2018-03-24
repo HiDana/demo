@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>FaceDetector</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		#container {
+			position: absolute;
+			width: 100%;
+			height: auto;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.landmark {
+			padding: 5px;
+			position: absolute;
+		}
+
+		.mouth {
+			border: 2px solid #FF307F;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<img id="face-image" alt="image" style="width: 100%;" />
+	</div>
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+	window.onload = main();
+	function main() {
+		const faceDetector = new FaceDetector({ fastMode: true, maxDetectedFaces: 10 });
+
+		const image = document.getElementById('face-image');
+		const container = document.getElementById('container');
+
+		image.src = './IMG_5687.jpg'
+
+		image.onload = function () {
+			setTimeout(handleDetect, 100);
+		};
+
+		function handleDetect() {
+			const rate = image.offsetWidth / image.naturalWidth;
+			console.log(rate, image.offsetWidth, image.naturalWidth);
+
+
+			faceDetector.detect(image)
+				.then(detectedFaces => {
+					console.log(detectedFaces);
+					detectedFaces.forEach(face => {
+						const { width, height, top, left, x, y } = face.boundingBox
+						const faceBox = document.createElement('div');
+						faceBox.style.position = 'absolute';
+						faceBox.style.left = rate * x + 'px';
+						faceBox.style.top = rate * y + 'px';
+						faceBox.style.width = rate * width + 'px';
+						faceBox.style.height = rate * height + 'px';
+						faceBox.style.border = '2px solid #3AF4D5';
+
+
+						//create eyes and mouth
+						face.landmarks.forEach(landmark => {
+							const el = document.createElement('div');
+							el.classList.add('landmark', landmark.type)
+							el.style.cssText = `
+							top: ${rate * (landmark.location.y - top - 10)}px; 
+							left: ${rate * (landmark.location.x - left - 10)}px; 
+							border:2px solid #FFFC56;
+							`;
+							faceBox.appendChild(el);
+						})
+
+						container.appendChild(faceBox);
+						console.log(faceBox);
+
+					})
+				})
+				.catch((e) => {
+					console.error("Face Detection failed, boo.", e);
+				});
+		}
+	}
+</script>

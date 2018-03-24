@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>face</title>
+	<link rel="stylesheet" href="./face.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="btn_bg" onclick="btnClick()">
+			<div class="btn hihi"></div>
+		</div>
+	</div>
+</body>
+
+</html>
+<script>
+	const btnToggle = document.getElementsByClassName('btn');
+	const btnBgToggle = document.getElementsByClassName('btn_bg');
+
+	function btnClick() {
+		btnToggle[0].classList.toggle('btn_open')
+		btnBgToggle[0].classList.toggle('btn_bg_open')
+	}
+</script>
