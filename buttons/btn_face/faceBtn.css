@@ -3,12 +3,14 @@ margin: 0;
 padding: 0;
 list-style:none;
 box-sizing: border-box;
-font-size: 'Noto Sans TC', 'Microsoft JhengHei', 'Arial'
+font-size: 'Noto Sans TC', 'Microsoft JhengHei', 'Arial';
+text-decoration: none;
 }
 body{
 	width: 100vw;
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: #D4D4D4;
@@ -22,6 +24,14 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+.info{
+	font-size: 12px;
+	color: #8E8E8E;
+	margin-top: 15px;
+}
+.info a{
+	color: #2F92A7;
+}
 .btn_bg{
 	width: 140px;
 	height: 64px;
@@ -32,7 +42,8 @@ body{
 	box-shadow: inset 1px 3px 4px rgba(40,40,40,.3);
 	border-radius: 32px;
 	position: relative;
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
+	cursor: pointer;
 }
 .btn{
 	width: 54px;
@@ -43,7 +54,7 @@ body{
 	top: 5px;
 	left: 5px;
 	box-shadow: 0 2px 4px rgba(100,100,100,.5);
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
 }
 .btn:before{
 	content: '';
@@ -52,6 +63,7 @@ body{
 	border-radius: 54px;
 	position: absolute;
 	background: radial-gradient(farthest-corner at 40px 10px, rgba(255,255,255,0) 50%, rgba(210,210,210,.8) 90%);
+	transform: translateZ(100px);
 	z-index: 1000;
 }
 .btn_face{
@@ -62,7 +74,7 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
 }
 .sq{
 	width: 30px;
@@ -149,13 +161,13 @@ body{
 	background-image: linear-gradient(30deg,#FF5F6D 0%, #FFC371 35%, #FFFDE4 75%,#005AA7 100%);
 	background-size:280px 64px ;
 	background-position:280px 0px;
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
 }
 .btn_open{
 	left: 81px;
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
 }
 .btn_face_open{
 	-webkit-transform: rotateY(180deg);
-	transition: .5s cubic-bezier(.39,.55,.46,.62);
+	transition: .3s cubic-bezier(.39,.55,.46,.62);
 }
