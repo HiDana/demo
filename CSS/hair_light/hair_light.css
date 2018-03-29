@@ -1,0 +1,227 @@
+body{
+  background-color: #555;
+}
+.hair_light{
+  width: 200px;
+  height: 500px;
+  margin:120px auto;
+  /* border: 1px solid #aaa; */
+}
+
+.body{
+  width: 120px;
+  height: 300px;
+  /*background-color: #ccc;*/
+  /*border: 1px solid #aaa;*/
+  margin: auto;
+  position: relative;
+  box-shadow: inset 0px 3px 6px hsla(0,0%,0%,0.5);
+  background-image:linear-gradient(143deg,#0F3261 0px,#0F3261 10px,
+                   	                     #fff 10px,#fff 30px,
+                                         #f00 30px,#f00 50px,
+                                         #fff 50px,#fff 70px,
+                                         #0F3261 70px,#0F3261 90px,
+                                         #fff 90px,#fff 110px,
+                                         #f00 110px,#f00 130px,
+                                         #fff 130px,#fff 150px,
+                                         #0F3261 150px,#0F3261 170px,
+                                         #fff 170px,#fff 190px);
+  background-size: 100% 100px;
+  /*background-repeat: no-repeat;*/
+  animation: don 1.5s linear infinite;
+
+}        	  
+
+
+/*塑膠殼*/
+.body:before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 130px;
+  height: 100%;
+  top: 0;
+  left: -5px;
+  background-color: rgba(255,255,255,0.1);
+  /*塑膠殼反光*/
+  background-image: linear-gradient(90deg,rgba(255,255,255,0.55) 0%,
+                                         rgba(255,255,255,0.4) 1.5%,
+                                         rgba(255,255,255,0.3) 1.5%,   	                                  
+  	                                     rgba(0,0,0,0.1) 4%,
+                                         rgba(5,5,5,0.5) 8%,
+                                         rgba(0,0,0,0.3) 20%,
+                                         rgba(0,0,0,0.1) 35%,
+                                         rgba(0,0,0,0.15) 44%,
+                                         transparent 60%,
+                                         rgba(255,255,255,0.3) 70%,
+                                         rgba(255,255,255,0.6) 80%,
+                                         rgba(255,255,255,0.3) 85%,
+                                         transparent 90%,
+                                         transparent 92%,
+                                         rgba(220,220,220,0.6) 98.5%,
+                                         rgba(255,255,255,0.7) 98.5%,
+                                         rgba(255,255,255,0.8) 100%),
+                    linear-gradient(145deg,rgba(0,0,0,0.4) 0px,
+                                          transparent 15px);
+}
+
+@keyframes don{
+  0%{background-position: 0px 0px ;}
+  50%{background-position: 0px 100px ;}
+  100%{background-position: 0px 200px ;}
+}
+
+
+
+/*上蓋*/
+.head{
+  width: 120px;
+  height: 90px;
+  margin: auto;
+  position: relative;
+  /*background-color: #ccc;*/
+  border-radius: 50% 50% 0 0 ;
+  box-shadow:1px 0px 2px -1px #FFf inset,
+             22px 0px 3px -8px hsla(18, 4%, 50%, 0.9) inset,
+             25px 0px 1px -8px #999 inset, 
+             55px 0px 6px -26px #27241F inset,   
+             105px 0px 5px -60px #787679 inset,
+             135px 0px 5px -87px #bbb inset,  
+
+             0px 0px 6px -1px #fff inset,     
+             -10px 0px 3px -2px #AAA inset, 
+             -28px 0px 2px -10px #eee inset,
+             -40px 0px 4px -15px #706562 inset,
+             -65px 0px 8px -30px #292420 inset, 
+             -127px 0px 4px -87px #D0CCCD inset,
+             -135px 0px 6px -87px #ccc inset,
+             -86px 0px 0px -5px #ACA8A9 inset;
+  
+
+
+}
+
+/*蓋子下方*/
+.head:before{
+	position: absolute;
+	z-index: 2;
+	content: '';
+	display: block;
+	width: 160px;
+	height: 18px;
+	background-color: #fff;
+	bottom: 8px;
+	right: -20px;
+	border-radius: 11px;
+	background-image:linear-gradient(180deg,#fff 0px,rgba(255,255,255,0.3) 3px,transparent 4px),
+	                 linear-gradient(0deg,#000 0px,rgba(0,0,0,0.4) 3px,transparent 5px),
+	                 linear-gradient(90deg,
+		                  #eee 0px,#aaa 8px,#999 12px,#888 15px,
+		                  #ddd 30px,#999 35px,#666 40px,#aaa 48px,
+		                  #888 60px,#aaa 80px,#eee 90px,#999 95px,
+		                  #777 100px,#444 105px,#777 130px,#ddd 138px,
+		                  #fff 142px,#999 150px,#555 160px);
+	/*box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.4);*/
+}
+
+/*蓋子下下方*/
+.head:after{
+	position: absolute;
+	z-index: 1;
+	content: '';
+	display: block;
+	width: 132px;
+	height: 8px;
+	background-color: #fff;
+	bottom: 0px;
+	right: -6px;
+	/*border-radius: 11px;*/
+	background-image:
+	                 linear-gradient(90deg,
+		                  #eee 0px,#aaa 8px,#999 12px,#888 15px,
+		                  #ddd 22px,#999 33px,#666 37px,#aaa 45px,
+		                  #999 60px,#aaa 65px,#eee 73px,#999 78px,
+		                  #777 80px,#444 85px,#eee 115px,#444 130px);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4),
+				0px 1px 2px 0px rgba(0,0,0,.8) inset;
+}
+
+
+
+
+
+
+
+
+/*下蓋*/
+.footer{
+  width: 120px;
+  height: 90px;
+  margin: auto;
+  position: relative;
+  /*background-color: #ccc;*/
+  border-radius: 50% 50% 0 0 ;
+  box-shadow:1px 0px 2px -1px #FFE inset,
+             22px 0px 3px -8px hsla(18, 4%, 50%, 0.9) inset,
+             25px 0px 1px -8px #999 inset, 
+             55px 0px 6px -26px #27241F inset,   
+             105px 0px 5px -60px #787679 inset,
+             135px 0px 5px -87px #bbb inset,  
+
+             0px 0px 6px -1px #fff inset,     
+             -10px 0px 3px -2px #AAA inset, 
+             -28px 0px 2px -10px #eee inset,
+             -40px 0px 4px -15px #706562 inset,
+             -65px 0px 8px -30px #292420 inset, 
+             -127px 0px 4px -87px #D0CCCD inset,
+             -135px 0px 6px -87px #ccc inset,
+             -86px 0px 0px -5px #ACA8A9 inset,
+             0px 3px 0px 0px #000 inset;
+
+  transform: rotateX(180deg);
+}
+
+/*蓋子下方*/
+.footer:before{
+	position: absolute;
+	z-index: 2;
+	content: '';
+	display: block;
+	width: 160px;
+	height: 18px;
+	background-color: #fff;
+	bottom: 8px;
+	right: -20px;
+	border-radius: 11px;
+	background-image:linear-gradient(1deg,#fff 0px,rgba(255,255,255,0.1) 8px,transparent 10px),
+	                 linear-gradient(180deg,#000 0px,rgba(0,0,0,0.4) 3px,transparent 5px),
+	                 linear-gradient(90deg,
+		                  #eee 0px,#aaa 8px,#999 12px,#888 15px,
+		                  #ddd 30px,#999 35px,#666 40px,#aaa 48px,
+		                  #888 60px,#aaa 80px,#eee 90px,#999 95px,
+		                  #777 100px,#444 105px,#777 130px,#ddd 138px,
+		                  #fff 142px,#999 150px,#555 160px);
+	/*box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.4);*/
+}
+
+/*蓋子下下方*/
+.footer:after{
+	position: absolute;
+	z-index: 1;
+	content: '';
+	display: block;
+	width: 132px;
+	height: 8px;
+	background-color: #fff;
+	bottom: 0px;
+	right: -6px;
+	/*border-radius: 11px;*/
+	background-image:
+	                 linear-gradient(90deg,
+		                  #eee 0px,#aaa 8px,#999 12px,#888 15px,
+		                  #ddd 22px,#999 33px,#666 37px,#aaa 45px,
+		                  #999 60px,#aaa 65px,#eee 73px,#999 78px,
+		                  #777 80px,#444 85px,#eee 115px,#444 130px);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2),
+				0px 1px 2px 0px rgba(0,0,0,.8) inset;
+}
