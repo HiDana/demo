@@ -471,6 +471,7 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
 }
 
 .portfolio-wrapper {
+	height: 240px;
   overflow: hidden;
   position: relative !important;
   cursor: pointer;
@@ -480,11 +481,11 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
   overflow: hidden;
   position: relative;
   z-index: 1;
-  float: left;
+	float: left;
 }
 
 .portfolio img {
-  max-width: 100%;
+	max-width: 100%;
   z-index: -1;
   position: relative;
   -webkit-transform: scale(1.1);
@@ -493,7 +494,9 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
   -o-transform: scale(1.1);
   transform: scale(1.1);
   -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	
+	margin: auto;
 }
 
 .portfolio .label {
@@ -506,7 +509,7 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
 }
 
 .portfolio .label-bg {
-  background: #A7CDCC;
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   position: absolute;
