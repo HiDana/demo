@@ -33,6 +33,7 @@
 </head>
 
 <body>
+	<textarea id="text" rows=10 cols=80></textarea>
 	<div id="container">
 		<img id="face-image" alt="image" style="width: 100%;" />
 	</div>
@@ -97,4 +98,27 @@
 				});
 		}
 	}
+</script>
+<script>
+	var text = document.getElementById('text');
+	if (window.FaceDetector == undefined) {
+		text.value = ' FaceDetector is NOT supported\n'
+	} else {
+		text.value = ' FaceDetector is supported\n'
+	}
+
+	if (window.BarcodeDetector == undefined) {
+		text.value += ' BarcodeDetector is NOT supported\n'
+	} else {
+		text.value += ' BarcodeDetector is supported\n'
+	}
+
+
+	if (window.TextDetector == undefined) {
+		text.value += ' TextDetector is NOT supported\n'
+	} else {
+		text.value += ' TextDetector is supported\n'
+	}
+
+
 </script>
