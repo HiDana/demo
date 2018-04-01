@@ -11,6 +11,45 @@
 			box-sizing: border-box;
 			padding: 0;
 			margin: 0;
+			text-decoration: none;
+		}
+
+		.info {
+			border: 1px solid #0a0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.browser_support {
+			width: 50vw;
+			height: 50vh;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			/* align-items: center; */
+			box-shadow: 0 4px 10px rgba(150, 150, 150, .2);
+			padding: 30px;
+		}
+
+		.browser_support span {
+			font-weight: 800;
+		}
+
+		.browser_support h3 {
+			margin: -10px 0 10px 0;
+			color: #FF3468;
+		}
+
+		.browser_support p {
+			margin: 2px 0;
+		}
+
+		.browser_support a {
+			color: #2F92A7;
 		}
 
 		#container {
@@ -29,13 +68,31 @@
 		.mouth {
 			border: 2px solid #FF307F;
 		}
+
+		.hide {
+			display: none;
+		}
 	</style>
 </head>
 
 <body>
 
-	<div class="browser_support"></div>
-	<div id="container">
+	<div class="info">
+		<div class="browser_support">
+			<h3>
+				Oops !! your browser is NOT supporting FaceDetector
+			</h3>
+			<p>1. download
+				<a href="https://www.google.com.tw/chrome/browser/canary.html">chrome canary</a>
+			</p>
+			<p>2. open
+				<a href="chrome://flags/#enable-experimental-web-platform-feature">chrome plugin</a> and enable
+				<span>Experimental Web Platform features</span>
+			</p>
+
+		</div>
+	</div>
+	<div id="container" class="container">
 		<img id="face-image" alt="image" style="width: 100%;" />
 	</div>
 
@@ -101,29 +158,15 @@
 	}
 </script>
 <script>
-	const browser_support = document.getElementsByClassName('browser_support');
-
+	const info = document.getElementsByClassName('info');
+	const container = document.getElementsByClassName('container');
 
 
 	if (window.FaceDetector == undefined) {
-
-		browser_support[0].innerHTML = 'Oops !! your browser is NOT supported FaceDetector \n'
+		container[0].classList.toggle('hide')
 	} else {
-		// text.value = ' FaceDetector is supported\n'
+		info[0].classList.toggle('hide')
 	}
-
-	// if (window.BarcodeDetector == undefined) {
-	// 	text.value += ' BarcodeDetector is NOT supported\n'
-	// } else {
-	// 	text.value += ' BarcodeDetector is supported\n'
-	// }
-
-
-	// if (window.TextDetector == undefined) {
-	// 	text.value += ' TextDetector is NOT supported\n'
-	// } else {
-	// 	text.value += ' TextDetector is supported\n'
-	// }
 
 
 </script>
